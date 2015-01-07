@@ -243,11 +243,16 @@ trait KestrelConfig extends ServerConfig[Kestrel] {
    */
   var zookeeper: Option[ZooKeeperBuilder] = None
 
+   /**
+   * When true, enables tracing of session lifetime in the kestrel log
+   */
+  var enableSessionTrace: Boolean = false
+
   def apply(runtime: RuntimeEnvironment) = {
     new Kestrel(
       default(), queues, aliases, listenAddress, memcacheListenPort, textListenPort, thriftListenPort,
       queuePath, expirationTimerFrequency, clientTimeout, maxOpenTransactions, connectionBacklog,
-      statusFile, defaultStatus, statusChangeGracePeriod, zookeeper.map { _() }
+      statusFile, defaultStatus, statusChangeGracePeriod, enableSessionTrace, zookeeper.map { _() }
     )
   }
 
