@@ -15,7 +15,7 @@ object Kestrel extends Build {
   ).settings(
     name := "kestrel",
     organization := "net.lag",
-    version := "2.4.2-SNAPSHOT",
+    version := "2.4.4-SNAPSHOT",
     scalaVersion := "2.9.2",
 
     // time-based tests cannot be run in parallel
@@ -32,6 +32,7 @@ object Kestrel extends Build {
       "com.twitter.common.zookeeper" % "server-set" % "1.0.16",
 
       // for tests only:
+      "junit" % "junit" % "4.10",
       "org.scala-tools.testing" %% "specs" % "1.6.9" % "test",
       "org.jmock" % "jmock" % "2.4.0" % "test",
       "cglib" % "cglib" % "2.1_3" % "test",
